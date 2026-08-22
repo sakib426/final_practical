@@ -69,6 +69,7 @@ img {
 
     background: rgba(255,255,255,0.78);
 
+    -webkit-backdrop-filter: blur(25px);
     backdrop-filter: blur(25px);
 
     border-bottom: 1px solid rgba(120,80,180,0.12);
@@ -387,6 +388,10 @@ img {
     background:
         rgba(255,255,255,0.7);
 
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 
     color: #7c4dff;
@@ -506,6 +511,9 @@ img {
     box-shadow:
         0 25px 70px rgba(90,60,130,0.15);
 
+    -webkit-backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
 
     transition: 0.4s;
@@ -917,6 +925,8 @@ img {
 
     -webkit-line-clamp: 4;
 
+    line-clamp: 4;
+
     -webkit-box-orient: vertical;
 
     overflow: hidden;
@@ -1240,6 +1250,7 @@ img {
     background:
         rgba(255,255,255,0.07);
 
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
 
     box-shadow:
@@ -1395,6 +1406,8 @@ img {
 
     background:
         rgba(21,14,31,0.78);
+
+    -webkit-backdrop-filter: blur(18px);
 
     backdrop-filter: blur(18px);
 
