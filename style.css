@@ -1,0 +1,1884 @@
+/* =========================================================
+   MEALFINDER
+   CREATIVE FOOD DISCOVERY UI
+========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: #24202d;
+    background: #f8f6ff;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.container {
+    width: 90%;
+    max-width: 1250px;
+    margin: auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+
+    height: 78px;
+
+    background: rgba(255,255,255,0.78);
+
+    backdrop-filter: blur(25px);
+
+    border-bottom: 1px solid rgba(120,80,180,0.12);
+
+    box-shadow:
+        0 10px 40px rgba(50,30,80,0.06);
+}
+
+.nav-container {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 26px;
+    font-weight: 800;
+
+    color: #241735;
+}
+
+.logo span {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4d9d,
+            #7c4dff
+        );
+
+    box-shadow:
+        0 8px 20px rgba(124,77,255,0.25);
+
+    font-size: 22px;
+
+    transform: rotate(-5deg);
+
+    transition: 0.3s;
+}
+
+.logo:hover span {
+    transform:
+        rotate(5deg)
+        scale(1.08);
+}
+
+
+/* =========================================================
+   NAVIGATION
+========================================================= */
+
+.navbar {
+    display: flex;
+    gap: 8px;
+}
+
+.navbar a {
+    position: relative;
+
+    padding: 10px 18px;
+
+    color: #756d80;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    border-radius: 30px;
+
+    transition: 0.3s;
+}
+
+.navbar a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    bottom: 4px;
+
+    width: 0;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4d9d,
+            #7c4dff
+        );
+
+    transform: translateX(-50%);
+
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #7c4dff;
+}
+
+.navbar a:hover::after {
+    width: 25px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 680px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            #ffb3df,
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 15%,
+            #aeb5ff,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 80% 90%,
+            #ffd49a,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #fff1fa,
+            #eef0ff
+        );
+}
+
+
+/* decorative blobs */
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,77,157,0.35),
+            rgba(124,77,255,0.2)
+        );
+
+    filter: blur(2px);
+
+    top: -260px;
+    left: -150px;
+
+    animation:
+        blobMove 8s ease-in-out infinite;
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,210,255,0.22),
+            rgba(124,77,255,0.25)
+        );
+
+    bottom: -220px;
+    right: -100px;
+
+    animation:
+        blobMove 10s ease-in-out infinite reverse;
+}
+
+@keyframes blobMove {
+
+    0%,
+    100% {
+        transform: translate(0,0) rotate(0);
+    }
+
+    50% {
+        transform:
+            translate(35px,25px)
+            rotate(15deg);
+    }
+
+}
+
+
+/* =========================================================
+   FLOATING FOOD
+========================================================= */
+
+.hero-content::before {
+    content: "🍕";
+
+    position: absolute;
+
+    top: -100px;
+    left: -150px;
+
+    font-size: 65px;
+
+    filter:
+        drop-shadow(
+            0 15px 20px rgba(0,0,0,0.12)
+        );
+
+    animation:
+        foodFloat 5s ease-in-out infinite;
+}
+
+.hero-content::after {
+    content: "🥑";
+
+    position: absolute;
+
+    bottom: -100px;
+    right: -150px;
+
+    font-size: 65px;
+
+    animation:
+        foodFloat 6s ease-in-out infinite reverse;
+}
+
+@keyframes foodFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-8deg);
+    }
+
+    50% {
+        transform:
+            translateY(-25px)
+            rotate(10deg);
+    }
+
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: min(900px, 90%);
+}
+
+
+/* =========================================================
+   HERO TAG
+========================================================= */
+
+.hero-tag {
+    display: inline-flex;
+
+    padding: 9px 18px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid rgba(124,77,255,0.15);
+
+    border-radius: 50px;
+
+    background:
+        rgba(255,255,255,0.7);
+
+    backdrop-filter: blur(10px);
+
+    color: #7c4dff;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    box-shadow:
+        0 8px 25px rgba(100,70,150,0.08);
+}
+
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.hero h1 {
+    font-family: "Outfit", sans-serif;
+
+    font-size: clamp(55px, 8vw, 95px);
+
+    line-height: 0.95;
+
+    font-weight: 800;
+
+    letter-spacing: -4px;
+
+    color: #241735;
+
+    margin-bottom: 28px;
+}
+
+.hero h1 span {
+    display: inline-block;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3f9f,
+            #7c4dff,
+            #3f9dff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    position: relative;
+}
+
+.hero h1 span::after {
+    content: "";
+
+    position: absolute;
+
+    left: 5%;
+    bottom: -10px;
+
+    width: 90%;
+    height: 7px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff4d9d,
+            #7c4dff
+        );
+
+    transform:
+        rotate(-2deg);
+}
+
+
+/* =========================================================
+   HERO DESCRIPTION
+========================================================= */
+
+.hero p {
+    max-width: 650px;
+
+    margin: 0 auto 40px;
+
+    color: #766e80;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box {
+    position: relative;
+
+    display: flex;
+
+    width: min(720px,100%);
+
+    margin: auto;
+
+    padding: 7px;
+
+    background: rgba(255,255,255,0.85);
+
+    border: 2px solid white;
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 25px 70px rgba(90,60,130,0.15);
+
+    backdrop-filter: blur(15px);
+
+    transition: 0.4s;
+}
+
+.search-box:focus-within {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 30px 80px rgba(90,60,130,0.22);
+}
+
+.search-box input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    padding: 16px 20px;
+
+    color: #31283b;
+
+    font-size: 15px;
+}
+
+.search-box input::placeholder {
+    color: #aaa2b0;
+}
+
+.search-box button {
+    border: none;
+
+    padding: 15px 30px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3f9f,
+            #7c4dff
+        );
+
+    color: white;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 10px 25px rgba(124,77,255,0.3);
+
+    transition: 0.3s;
+}
+
+.search-box button:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 15px 35px rgba(124,77,255,0.4);
+}
+
+
+/* =========================================================
+   RESULTS
+========================================================= */
+
+.results-section {
+    position: relative;
+
+    padding: 110px 0;
+
+    background:
+        #f8f6ff;
+}
+
+.results-section::before {
+    content: "";
+
+    position: absolute;
+
+    width: 200px;
+    height: 200px;
+
+    border-radius: 50%;
+
+    background: #ffb7df;
+
+    filter: blur(100px);
+
+    opacity: 0.35;
+
+    left: -80px;
+    top: 100px;
+}
+
+.results-section::after {
+    content: "";
+
+    position: absolute;
+
+    width: 250px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    background: #b5baff;
+
+    filter: blur(110px);
+
+    opacity: 0.35;
+
+    right: -100px;
+    bottom: 100px;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    margin-bottom: 60px;
+}
+
+.section-heading span,
+.about-tag {
+    padding: 7px 15px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ffe4f3,
+            #e7e1ff
+        );
+
+    color: #8152c9;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    margin: 17px 0 8px;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 48px;
+
+    font-weight: 800;
+
+    color: #292034;
+}
+
+.section-heading p {
+    color: #91889d;
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   MEAL GRID
+========================================================= */
+
+.meal-grid {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   MEAL CARD
+========================================================= */
+
+.meal-card {
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        rgba(255,255,255,0.85);
+
+    border: 1px solid rgba(255,255,255,0.95);
+
+    border-radius: 28px;
+
+    box-shadow:
+        0 20px 50px rgba(50,35,90,0.08);
+
+    backdrop-filter: blur(15px);
+
+    transition:
+        transform 0.45s ease,
+        box-shadow 0.45s ease;
+}
+
+.meal-card:hover {
+    transform:
+        translateY(-12px);
+
+    box-shadow:
+        0 35px 80px rgba(50,35,90,0.15);
+}
+
+
+/* colored top line */
+
+.meal-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3f9f,
+            #7c4dff,
+            #3f9dff
+        );
+
+    z-index: 5;
+}
+
+
+/* =========================================================
+   MEAL IMAGE
+========================================================= */
+
+.meal-image {
+    position: relative;
+
+    height: 255px;
+
+    overflow: hidden;
+}
+
+.meal-image img {
+    height: 100%;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.7s ease;
+}
+
+.meal-card:hover .meal-image img {
+    transform: scale(1.12);
+}
+
+
+/* image gradient */
+
+.meal-image::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent 50%,
+            rgba(20,12,30,0.35)
+        );
+}
+
+
+/* =========================================================
+   ID BADGE
+========================================================= */
+
+.meal-id {
+    position: absolute;
+
+    top: 16px;
+    right: 16px;
+
+    z-index: 4;
+
+    padding: 8px 13px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(255,255,255,0.88);
+
+    backdrop-filter: blur(10px);
+
+    color: #5f4d72;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.12);
+}
+
+
+/* =========================================================
+   MEAL CONTENT
+========================================================= */
+
+.meal-content {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    padding: 25px;
+}
+
+.meal-category {
+    width: fit-content;
+
+    padding: 6px 11px;
+
+    margin-bottom: 12px;
+
+    border-radius: 8px;
+
+    background:
+        #f0eaff;
+
+    color: #7551bd;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+}
+
+.meal-title {
+    font-family: "Outfit", sans-serif;
+
+    font-size: 25px;
+
+    line-height: 1.15;
+
+    color: #292034;
+
+    margin-bottom: 9px;
+}
+
+.meal-name {
+    margin-bottom: 18px;
+
+    color: #92899b;
+
+    font-size: 12px;
+}
+
+.meal-name strong {
+    color: #62586b;
+}
+
+.instruction-title {
+    color: #3a3044;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    margin-bottom: 8px;
+}
+
+.instruction-title::before {
+    content: "👨‍🍳";
+
+    margin-right: 6px;
+}
+
+.instructions {
+    color: #82798c;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 4;
+
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   COOKING BUTTON
+========================================================= */
+
+.instruction-btn {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 13px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #292034,
+            #60439a
+        );
+
+    color: white;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(60,40,100,0.2);
+
+    transition: 0.35s;
+}
+
+.instruction-btn:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #ff3f9f,
+            #7c4dff
+        );
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 13px 30px rgba(124,77,255,0.3);
+}
+
+
+/* =========================================================
+   SHOW ALL
+========================================================= */
+
+.show-all-container {
+    position: relative;
+    z-index: 3;
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 60px;
+}
+
+.show-all-btn {
+    position: relative;
+
+    overflow: hidden;
+
+    border: none;
+
+    padding: 16px 35px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3f9f,
+            #7c4dff
+        );
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    box-shadow:
+        0 12px 30px rgba(124,77,255,0.3);
+
+    transition: 0.35s;
+}
+
+.show-all-btn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.35),
+            transparent
+        );
+
+    transition: 0.5s;
+}
+
+.show-all-btn:hover::before {
+    left: 100%;
+}
+
+.show-all-btn:hover {
+    transform:
+        translateY(-5px)
+        scale(1.04);
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.loading {
+    position: relative;
+    z-index: 5;
+
+    text-align: center;
+
+    padding: 70px;
+
+    color: #81778d;
+}
+
+.spinner {
+    width: 58px;
+    height: 58px;
+
+    margin: auto auto 18px;
+
+    border: 4px solid #e9e2f5;
+
+    border-top-color: #ff3f9f;
+
+    border-right-color: #7c4dff;
+
+    border-radius: 50%;
+
+    animation:
+        spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.message {
+    position: relative;
+    z-index: 5;
+
+    width: min(650px,90%);
+
+    margin: 30px auto;
+
+    padding: 25px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: white;
+
+    border: 1px solid #eadff5;
+
+    color: #7d728a;
+
+    box-shadow:
+        0 15px 40px rgba(70,40,100,0.08);
+}
+
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.about-section {
+    position: relative;
+
+    padding: 120px 0;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #21162e,
+            #30205b,
+            #1a3653
+        );
+
+    color: white;
+}
+
+.about-section::before {
+    content: "🍜";
+
+    position: absolute;
+
+    font-size: 200px;
+
+    opacity: 0.04;
+
+    left: -50px;
+    bottom: -60px;
+
+    transform: rotate(-15deg);
+}
+
+.about-section::after {
+    content: "🍰";
+
+    position: absolute;
+
+    font-size: 180px;
+
+    opacity: 0.04;
+
+    right: -40px;
+    top: -50px;
+
+    transform: rotate(15deg);
+}
+
+.about-content {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr 1fr;
+
+    align-items: center;
+
+    gap: 80px;
+}
+
+.about-content h2 {
+    margin: 18px 0 20px;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 52px;
+
+    line-height: 1.05;
+
+    color: white;
+}
+
+.about-content h2 span {
+    background:
+        linear-gradient(
+            90deg,
+            #ff4d9d,
+            #a98bff
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.about-content > div:first-child p {
+    max-width: 620px;
+
+    color: #b8afc5;
+
+    font-size: 14px;
+
+    line-height: 2;
+}
+
+
+/* =========================================================
+   ABOUT CARD
+========================================================= */
+
+.about-card {
+    padding: 45px 35px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    border-radius: 28px;
+
+    background:
+        rgba(255,255,255,0.07);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.18);
+
+    transition: 0.4s;
+}
+
+.about-card:hover {
+    transform: translateY(-10px);
+
+    background:
+        rgba(255,255,255,0.1);
+}
+
+.about-icon {
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: auto auto 20px;
+
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3f9f,
+            #7c4dff
+        );
+
+    font-size: 38px;
+
+    box-shadow:
+        0 15px 30px rgba(124,77,255,0.25);
+}
+
+.about-card h3 {
+    margin-bottom: 10px;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 23px;
+}
+
+.about-card p {
+    color: #aaa1b6;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    background: #16101e;
+
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 55px 0;
+}
+
+.footer-logo {
+    font-family: "Outfit", sans-serif;
+
+    font-size: 25px;
+    font-weight: 800;
+
+    color: white;
+}
+
+.footer-content p {
+    margin-top: 8px;
+
+    color: #81788b;
+
+    font-size: 12px;
+}
+
+.footer-links {
+    display: flex;
+
+    gap: 10px;
+}
+
+.footer-links a {
+    padding: 9px 15px;
+
+    border-radius: 30px;
+
+    color: #918799;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: white;
+
+    background:
+        rgba(255,255,255,0.08);
+}
+
+.copyright {
+    padding: 20px;
+
+    text-align: center;
+
+    border-top:
+        1px solid rgba(255,255,255,0.07);
+}
+
+.copyright p {
+    color: #62596b;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   COOKING MODAL
+========================================================= */
+
+.modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 999999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(21,14,31,0.78);
+
+    backdrop-filter: blur(18px);
+
+    animation:
+        fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* modal box */
+
+.modal-content {
+    position: relative;
+
+    width: min(850px,100%);
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    padding: 30px;
+
+    border:
+        1px solid rgba(255,255,255,0.8);
+
+    border-radius: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #fbf8ff
+        );
+
+    box-shadow:
+        0 40px 100px rgba(0,0,0,0.35);
+
+    animation:
+        modalUp 0.4s ease;
+}
+
+@keyframes modalUp {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(40px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* close */
+
+.close-modal {
+    position: absolute;
+
+    top: 18px;
+    right: 18px;
+
+    z-index: 5;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.9);
+
+    color: #4a3a55;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(40,20,60,0.15);
+
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff3f9f,
+            #7c4dff
+        );
+
+    transform:
+        rotate(90deg)
+        scale(1.1);
+}
+
+
+/* modal image */
+
+.modal-image {
+    width: 100%;
+
+    height: 330px;
+
+    object-fit: cover;
+
+    border-radius: 24px;
+
+    margin-bottom: 25px;
+}
+
+
+/* modal title */
+
+.modal-title {
+    padding-right: 50px;
+
+    margin-bottom: 16px;
+
+    font-family: "Outfit", sans-serif;
+
+    font-size: 36px;
+
+    font-weight: 800;
+
+    color: #292034;
+}
+
+
+/* modal info */
+
+.modal-info {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-bottom: 30px;
+}
+
+.modal-info span {
+    padding: 8px 13px;
+
+    border-radius: 10px;
+
+    background:
+        #f0eaff;
+
+    color: #7653b5;
+
+    font-size: 11px;
+    font-weight: 800;
+}
+
+
+/* instruction heading */
+
+.modal-instruction-title {
+    padding-bottom: 13px;
+
+    margin-bottom: 15px;
+
+    border-bottom:
+        1px dashed #ddd1e8;
+
+    color: #31263b;
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+
+/* instruction */
+
+.modal-instructions {
+    color: #6e6477;
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    white-space: pre-line;
+}
+
+
+/* scrollbar */
+
+.modal-content::-webkit-scrollbar {
+    width: 7px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #f4f0f8;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background:
+        linear-gradient(
+            #ff3f9f,
+            #7c4dff
+        );
+
+    border-radius: 20px;
+}
+
+
+/* =========================================================
+   CARD ANIMATION
+========================================================= */
+
+.meal-card {
+    animation:
+        cardAppear 0.6s ease both;
+}
+
+.meal-card:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.meal-card:nth-child(2) {
+    animation-delay: 0.10s;
+}
+
+.meal-card:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.meal-card:nth-child(4) {
+    animation-delay: 0.20s;
+}
+
+.meal-card:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(35px)
+            scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .meal-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .about-content {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .about-card {
+        max-width: 500px;
+
+        margin: auto;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .header {
+        height: auto;
+
+        padding: 14px 0;
+    }
+
+    .nav-container {
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+    .navbar {
+        gap: 3px;
+    }
+
+    .navbar a {
+        padding: 7px 11px;
+
+        font-size: 11px;
+    }
+
+
+    .hero {
+        min-height: 630px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+
+        letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+        display: block;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .hero-content::before,
+    .hero-content::after {
+        display: none;
+    }
+
+
+    .search-box {
+        flex-direction: column;
+
+        padding: 6px;
+
+        border-radius: 20px;
+    }
+
+    .search-box input {
+        width: 100%;
+    }
+
+    .search-box button {
+        width: 100%;
+    }
+
+
+    .results-section {
+        padding: 80px 0;
+    }
+
+    .section-heading h2 {
+        font-size: 38px;
+    }
+
+    .meal-grid {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+
+    .about-section {
+        padding: 80px 0;
+    }
+
+    .about-content h2 {
+        font-size: 40px;
+    }
+
+
+    .modal {
+        padding: 10px;
+    }
+
+    .modal-content {
+        padding: 22px;
+
+        border-radius: 25px;
+
+        max-height: 93vh;
+    }
+
+    .modal-image {
+        height: 220px;
+
+        border-radius: 18px;
+    }
+
+    .modal-title {
+        font-size: 28px;
+    }
+
+    .modal-instructions {
+        font-size: 13px;
+
+        line-height: 1.85;
+    }
+
+
+    .footer-content {
+        flex-direction: column;
+
+        text-align: center;
+
+        gap: 25px;
+    }
+
+    .footer-links {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .logo span {
+        width: 37px;
+        height: 37px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+
+    .hero-tag {
+        font-size: 9px;
+
+        letter-spacing: 1px;
+    }
+
+    .meal-image {
+        height: 220px;
+    }
+
+    .meal-content {
+        padding: 21px;
+    }
+}
+.home-button {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 14px;
+    transition: 0.3s ease;
+}
+
+.home-button:hover {
+    transform: translateY(-4px) scale(1.03);
+}
