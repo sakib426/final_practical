@@ -1,10 +1,310 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>MealFinder | Meals</title>
+
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-    
+
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="container nav-container">
+
+            <a href="index.html" class="logo">
+
+                <span>🍴</span>
+                MealFinder
+
+            </a>
+
+
+            <nav class="navbar">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="meal.html">
+                    Meals
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- MEAL SEARCH -->
+
+    <section
+        class="hero"
+        style="min-height:500px;"
+    >
+
+        <div class="hero-content">
+
+            <div class="hero-tag">
+                🍜 MEAL DISCOVERY
+            </div>
+
+
+            <h1>
+
+                Search
+                <span>Meals</span>
+
+            </h1>
+
+
+            <p>
+
+                Search for your favorite meal and discover
+                complete cooking instructions.
+
+            </p>
+
+
+            <!-- SEARCH BAR -->
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Chicken, Pasta, Pizza..."
+                >
+
+
+                <button
+                    type="button"
+                    id="searchBtn"
+                >
+
+                    🔍 Search
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- RESULTS -->
+
+    <section class="results-section">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <span>
+                    SEARCH RESULTS
+                </span>
+
+
+                <h2>
+                    Delicious Meals
+                </h2>
+
+
+                <p id="resultText">
+                    Search for a meal to see results.
+                </p>
+
+            </div>
+
+
+
+            <!-- LOADING -->
+
+            <div
+                id="loading"
+                class="loading hidden"
+            >
+
+                <div class="spinner"></div>
+
+                <p>
+                    Finding delicious meals...
+                </p>
+
+            </div>
+
+
+
+            <!-- MESSAGE -->
+
+            <div
+                id="message"
+                class="message hidden"
+            ></div>
+
+
+
+            <!-- MEAL RESULTS -->
+
+            <div
+                id="mealContainer"
+                class="meal-grid"
+            ></div>
+
+
+
+            <!-- SHOW ALL -->
+
+            <div
+                id="showAllContainer"
+                class="show-all-container hidden"
+            >
+
+                <button
+                    id="showAllBtn"
+                    class="show-all-btn"
+                >
+
+                    SHOW ALL MEALS
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- COOKING INSTRUCTION MODAL -->
+
+    <div
+        id="mealModal"
+        class="modal hidden"
+    >
+
+        <div class="modal-content">
+
+            <button
+                id="closeModal"
+                class="close-modal"
+            >
+                ×
+            </button>
+
+
+            <img
+                id="modalImage"
+                class="modal-image"
+                src=""
+                alt="Meal"
+            >
+
+
+            <h2
+                id="modalTitle"
+                class="modal-title"
+            ></h2>
+
+
+            <div
+                id="modalInfo"
+                class="modal-info"
+            ></div>
+
+
+            <h3 class="modal-instruction-title">
+
+                👨‍🍳 Cooking Instructions
+
+            </h3>
+
+
+            <p
+                id="modalInstructions"
+                class="modal-instructions"
+            ></p>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <div class="footer-logo">
+                    🍴 MealFinder
+                </div>
+
+                <p>
+                    Discover delicious meals from around the world.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="meal.html">
+                    Meals
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+                © 2026 MealFinder. All Rights Reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
 </body>
+
 </html>
